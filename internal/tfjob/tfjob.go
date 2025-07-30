@@ -1,4 +1,4 @@
-package main
+package tfjob
 
 import (
 	"fmt"
@@ -6,10 +6,11 @@ import (
 	"os/exec"
 	"path/filepath"
 
+	"github.com/GisangLee/tfcli/pkg/utils"
 	"github.com/manifoldco/promptui"
 )
 
-func handleTfJob() {
+func HandleTfJob() {
 	cspPrompt := promptui.Select{
 		Label: "☁️ CSP를 선택하세요",
 		Items: []string{"aws", "ncp", "gcp"},
@@ -57,7 +58,7 @@ func handleTfJob() {
 		fmt.Println("📁 위치 이동:", envPath)
 	}
 
-	args := parseTerraformArgs(selectedTask)
+	args := utils.ParseTerraformArgs(selectedTask)
 	cmd := exec.Command("terraform", args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

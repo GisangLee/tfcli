@@ -1,4 +1,4 @@
-package main
+package project
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"github.com/manifoldco/promptui"
 )
 
-func handleCreateProject() {
+func HandleCreateProject() {
 	cspPrompt := promptui.Select{
 		Label: "☁️ 초기화할 CSP를 선택하세요",
 		Items: []string{"aws", "ncp", "gcp"},

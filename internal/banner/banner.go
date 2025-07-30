@@ -1,4 +1,4 @@
-package main
+package banner
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/fatih/color"
 )
 
-func showBanner() {
+func Show() {
 	cyan := color.New(color.FgCyan).SprintFunc()
 	green := color.New(color.FgGreen).SprintFunc()
 	yellow := color.New(color.FgYellow).SprintFunc()
