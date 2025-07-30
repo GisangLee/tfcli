@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/GisangLee/tfcli/pkg/utils"
+	"github.com/GisangLee/tfcli/internal/utils"
 	"github.com/manifoldco/promptui"
 )
 
