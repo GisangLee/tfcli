@@ -32,7 +32,7 @@ curl -L https://github.com/GisangLee/tfcli/releases/download/v1.0.0/tfcli-linux-
 ```
 
 ---
-## 설치
+## 📦 설치
 ```bash
 chmod +x tfcli
 sudo mv tfcli /usr/local/bin/tfcli
@@ -40,7 +40,7 @@ sudo mv tfcli /usr/local/bin/tfcli
 
 ---
 
-## 사용법
+## 📦 사용법
 > 터미널에서 아래 명렁어로 실행하세요.
 ```bash
 $ tfcli
