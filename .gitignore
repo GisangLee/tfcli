@@ -47,3 +47,39 @@ _testmain.go
 # For files created by specific development environment (e.g. editor),
 # use alternative ways to exclude files from git.
 # For example, set up .git/info/exclude or use a global .gitignore.
+
+# Output of go build
+tfcli
+dist/
+# Windows thumbnail cache
+Thumbs.db
+
+# Env/config
+.env
+.env.*
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Test binary, coverage and result files
+*.coverprofile
+*.testresult
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*~
+
+# Go module files (optional if you don’t want to commit these)
+# go.sum
+
+# Dependency directories (if using vendoring)
+vendor/
