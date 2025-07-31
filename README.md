@@ -15,20 +15,20 @@ Terraform 기반 인프라 작업을 자동화하는 경량 CLI 도구입니다.
 ### 🔹 macOS (Apple Silicon)
 
 ```bash
-curl -L https://github.com/GisangLee/tfcli/releases/download/v1.0.0/tfcli-darwin-amd64-v1.0.0 -o tfcli
+curl -L https://github.com/GisangLee/tfcli/releases/download/v1.1.0/tfcli-darwin-amd64-v1.0.0 -o tfcli
 ```
 
 ### 🔹 macOS (Intel)
 
 ```bash
-curl -L https://github.com/GisangLee/tfcli/releases/download/v1.0.0/tfcli-darwin-arm64-v1.0.0 -o tfcli
+curl -L https://github.com/GisangLee/tfcli/releases/download/v1.1.0/tfcli-darwin-arm64-v1.0.0 -o tfcli
 ```
 
 
 ### 🔹 Linux
 
 ```bash
-curl -L https://github.com/GisangLee/tfcli/releases/download/v1.0.0/tfcli-linux-amd64-v1.0.0 -o tfcli
+curl -L https://github.com/GisangLee/tfcli/releases/download/v1.1.0/tfcli-linux-amd64-v1.0.0 -o tfcli
 ```
 
 ---
