@@ -1,34 +1,18 @@
 package utils
 
-import (
-	"github.com/manifoldco/promptui"
-)
-
 func ParseTerraformArgs(task string) []string {
 	switch task {
 	case "init":
-		return []string{"init"}
+		return []string{"init", "-no-color"}
 	case "fmt -recursive":
-		return []string{"fmt", "-recursive"}
+		return []string{"fmt", "-recursive", "-no-color"}
 	case "plan":
-		return []string{"plan", "-var-file=terraform.tfvars"}
+		return []string{"plan", "-var-file=terraform.tfvars", "-no-color"}
 	case "apply":
-		return []string{"apply", "-auto-approve"}
+		return []string{"apply", "-auto-approve", "-no-color"}
 	case "destroy":
-		return []string{"destroy", "-auto-approve"}
+		return []string{"destroy", "-auto-approve", "-no-color"}
 	default:
 		return []string{}
 	}
-}
-
-func selectRootMenu() string {
-	menu := promptui.Select{
-		Label: "✨ 실행할 작업을 선택하세요",
-		Items: []string{"create-project", "create-template", "tf-job"},
-	}
-	_, selection, err := menu.Run()
-	if err != nil {
-		return ""
-	}
-	return selection
 }
