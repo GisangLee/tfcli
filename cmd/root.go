@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/GisangLee/tfcli/internal/banner"
+	"github.com/GisangLee/tfcli/internal/module"
 	"github.com/GisangLee/tfcli/internal/project"
 	"github.com/GisangLee/tfcli/internal/template"
 	"github.com/GisangLee/tfcli/internal/tfjob"
@@ -14,7 +15,7 @@ func Execute() {
 
 	rootPrompt := promptui.Select{
 		Label: "✨ 실행할 작업을 선택하세요",
-		Items: []string{"create-project", "create-template", "tf-job"},
+		Items: []string{"create-project", "create-template", "tf-job", "module add"},
 	}
 	_, selectedTask, err := rootPrompt.Run()
 	if err != nil {
@@ -29,6 +30,8 @@ func Execute() {
 		template.HandleCreateTemplate()
 	case "tf-job":
 		tfjob.HandleTfJob()
+	case "module add":
+		module.HandleModuleAdd()
 	default:
 		println("❌ 알 수 없는 작업입니다.")
 	}
