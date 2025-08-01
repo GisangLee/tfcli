@@ -1,38 +1,52 @@
 package cmd
 
 import (
-	"github.com/GisangLee/tfcli/internal/banner"
-	"github.com/GisangLee/tfcli/internal/module"
-	"github.com/GisangLee/tfcli/internal/project"
-	"github.com/GisangLee/tfcli/internal/template"
-	"github.com/GisangLee/tfcli/internal/tfjob"
+	"fmt"
+	"os"
 
-	"github.com/manifoldco/promptui"
+	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 )
 
+var rootCmd = &cobra.Command{
+	Use:   "tfcli",
+	Short: "🌱 tfcli - Terraform 프로젝트를 손쉽게 관리하는 CLI 도구",
+	Long:  `🌱 tfcli는 Terraform 기반 인프라 관리를 더욱 편리하게 해주는 CLI 도구입니다.`,
+	Run: func(cmd *cobra.Command, args []string) {
+		PrintBanner()
+		customHelp(cmd, args)
+	},
+}
+
 func Execute() {
-	banner.Show()
+	cobra.OnInitialize()
+	rootCmd.SetHelpFunc(customHelp)
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println("❌ 오류:", err)
+		os.Exit(1)
+	}
+}
 
-	rootPrompt := promptui.Select{
-		Label: "✨ 실행할 작업을 선택하세요",
-		Items: []string{"create-project", "create-template", "tf-job", "module add"},
-	}
-	_, selectedTask, err := rootPrompt.Run()
-	if err != nil {
-		println("❌ 작업 선택 실패:", err)
-		return
-	}
+func customHelp(cmd *cobra.Command, args []string) {
+	green := color.New(color.FgHiGreen).SprintFunc()
+	bold := color.New(color.Bold).SprintFunc()
 
-	switch selectedTask {
-	case "create-project":
-		project.HandleCreateProject()
-	case "create-template":
-		template.HandleCreateTemplate()
-	case "tf-job":
-		tfjob.HandleTfJob()
-	case "module add":
-		module.HandleModuleAdd()
-	default:
-		println("❌ 알 수 없는 작업입니다.")
-	}
+	fmt.Println(green("╭────────────────────────────────────────────────────────╮"))
+	fmt.Println(green("│ 🌱 tfcli - Terraform 프로젝트를 손쉽게 관리하는 CLI 도구  │"))
+	fmt.Println(green("╰────────────────────────────────────────────────────────╯"))
+
+	fmt.Println()
+	fmt.Println(bold("🛠 사용법:"))
+	fmt.Println("  tfcli [명령어] [옵션]")
+
+	fmt.Println()
+	fmt.Println(bold("📚 사용 가능한 명령어:"))
+	fmt.Println("  project     📁 TFCLI 프로젝트 구조 생성")
+	fmt.Println("  template    🧩 모듈 템플릿 생성")
+	fmt.Println("  module      📦 모듈 자동 참조")
+	fmt.Println("  tf          🚀 Terraform 작업 실행 (init/fmt --recursive/plan/apply/destroy)")
+
+	fmt.Println()
+	fmt.Println(bold("🔧 옵션:"))
+	fmt.Println("  -h, --help   도움말 출력")
 }
