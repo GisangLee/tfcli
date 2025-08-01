@@ -13,25 +13,8 @@ import (
 )
 
 func HandleTfJob() {
-	cspPrompt := promptui.Select{
-		Label: "☁️ CSP를 선택하세요",
-		Items: []string{"aws", "ncp", "gcp"},
-	}
-	_, selectedCSP, err := cspPrompt.Run()
-	if err != nil {
-		fmt.Println("❌ CSP 선택 실패:", err)
-		return
-	}
-
-	envPrompt := promptui.Select{
-		Label: "🌎 환경을 선택하세요",
-		Items: []string{"dev", "stage", "prod"},
-	}
-	_, selectedEnv, err := envPrompt.Run()
-	if err != nil {
-		fmt.Println("❌ 환경 선택 실패:", err)
-		return
-	}
+	selectedCSP, _ := utils.PromptCSP()
+	selectedEnv, _ := utils.PromptEnv()
 
 	taskPrompt := promptui.Select{
 		Label: "⚙️ 실행할 Terraform 작업을 선택하세요",
