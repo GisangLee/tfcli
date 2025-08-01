@@ -25,7 +25,7 @@ func PromptEnv() (string, error) {
 	}
 	_, selectedEnv, err := envPrompt.Run()
 	if err != nil {
-		return "", fmt.Errorf("❌ 환경 선택 실패:", err)
+		return "", fmt.Errorf("❌ 환경 선택 실패: %w", err)
 	}
 
 	return selectedEnv, nil
