@@ -41,10 +41,12 @@ func customHelp(cmd *cobra.Command, args []string) {
 
 	fmt.Println()
 	fmt.Println(bold("📚 사용 가능한 명령어:"))
-	fmt.Println("  project     📁 TFCLI 프로젝트 구조 생성")
-	fmt.Println("  template    🧩 모듈 템플릿 생성")
-	fmt.Println("  module      📦 모듈 자동 참조")
-	fmt.Println("  tf          🚀 Terraform 작업 실행 (init/fmt --recursive/plan/apply/destroy)")
+	fmt.Println("  project       📁 TFCLI 프로젝트 구조 생성")
+	fmt.Println("  template      🧩 모듈 템플릿 생성")
+	fmt.Println("  module        📦 모듈 자동 참조")
+	fmt.Println("  tf            🚀 Terraform 작업 실행 (init/fmt --recursive/plan/apply/destroy)")
+	fmt.Println("  validate-all   ✅ 모든 디렉토리 terraform validate")
+	fmt.Println("  show           🎨 terraform.tfstate 시각화 출력")
 
 	fmt.Println()
 	fmt.Println(bold("🔧 옵션:"))
