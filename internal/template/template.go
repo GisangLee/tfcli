@@ -5,20 +5,13 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/GisangLee/tfcli/internal/utils"
 	"github.com/manifoldco/promptui"
 )
 
 func HandleCreateTemplate() {
-	cspPrompt := promptui.Select{
-		Label: "☁️ CSP를 선택하세요",
-		Items: []string{"aws", "ncp", "gcp"},
-	}
-	_, selectedCSP, err := cspPrompt.Run()
-	if err != nil {
-		fmt.Println("❌ CSP 선택 실패:", err)
-		return
-	}
 
+	selectedCSP, _ := utils.PromptCSP()
 	prompt := promptui.Prompt{
 		Label: "📦 생성할 리소스 이름 입력 (예: vpc, alb, eks 등)",
 	}

@@ -5,20 +5,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/manifoldco/promptui"
+	"github.com/GisangLee/tfcli/internal/utils"
 )
 
 func HandleCreateProject() {
-	cspPrompt := promptui.Select{
-		Label: "☁️ 초기화할 CSP를 선택하세요",
-		Items: []string{"aws", "ncp", "gcp"},
-	}
-	_, selectedCSP, err := cspPrompt.Run()
-	if err != nil {
-		fmt.Println("❌ CSP 선택 실패:", err)
-		return
-	}
-	createProjectStructure(selectedCSP)
+	cspPrompt, _ := utils.PromptCSP()
+	createProjectStructure(cspPrompt)
 }
 
 func createProjectStructure(csp string) {

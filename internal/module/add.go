@@ -7,29 +7,13 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/GisangLee/tfcli/internal/utils"
 	"github.com/manifoldco/promptui"
 )
 
 func HandleModuleAdd() {
-	cspPrompt := promptui.Select{
-		Label: "☁️ CSP를 선택하세요",
-		Items: []string{"aws", "ncp", "gcp"},
-	}
-	_, selectedCSP, err := cspPrompt.Run()
-	if err != nil {
-		fmt.Println("❌ CSP 선택 실패:", err)
-		return
-	}
-
-	envPrompt := promptui.Select{
-		Label: "🌎 환경을 선택하세요",
-		Items: []string{"dev", "stage", "prod"},
-	}
-	_, selectedEnv, err := envPrompt.Run()
-	if err != nil {
-		fmt.Println("❌ 환경 선택 실패:", err)
-		return
-	}
+	selectedCSP, _ := utils.PromptCSP()
+	selectedEnv, _ := utils.PromptEnv()
 
 	namePrompt := promptui.Prompt{Label: "📦 모듈 이름 입력 (예: vpc)"}
 	moduleName, err := namePrompt.Run()
