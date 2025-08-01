@@ -66,10 +66,12 @@ $ tfcli
   tfcli [명령어] [옵션]
 
 📚 사용 가능한 명령어:
-  project     📁 TFCLI 프로젝트 구조 생성
-  template    🧩 모듈 템플릿 생성
-  module      📦 모듈 자동 참조
-  tf          🚀 Terraform 작업 실행 (init/fmt --recursive/plan/apply/destroy)
+  project       📁 TFCLI 프로젝트 구조 생성
+  template      🧩 모듈 템플릿 생성
+  module        📦 모듈 자동 참조
+  tf            🚀 Terraform 작업 실행 (init/fmt --recursive/plan/apply/destroy)
+  validate-all   ✅ 모든 디렉토리 terraform validate
+  show           🎨 terraform.tfstate 시각화 출력
 
 🔧 옵션:
   -h, --help   도움말 출력
